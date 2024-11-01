@@ -2,9 +2,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.facebook.airlift</groupId>
+        <groupId>com.github.zacblanco.airbase</groupId>
         <artifactId>airbase</artifactId>
-        <version>104-SNAPSHOT</version>
+        <version>upgradeJava21Jitpack-SNAPSHOT</version>
     </parent>
 
     <groupId>com.facebook.presto</groupId>
@@ -32,11 +32,25 @@
         <tag>HEAD</tag>
     </scm>
 
+    <repositories>
+        <repository>
+            <id>jitpack</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jitpack</id>
+            <url>https://jitpack.io</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <properties>
         <air.check.skip-jacoco>true</air.check.skip-jacoco>
         <air.check.skip-spotbugs>true</air.check.skip-spotbugs>
         <air.check.skip-pmd>true</air.check.skip-pmd>
-        <dep.airlift.version>0.216-SNAPSHOT</dep.airlift.version>
+        <dep.airlift.version>upgradeJava21Jitpack-SNAPSHOT</dep.airlift.version>
     </properties>
 
     <modules>
@@ -53,27 +67,27 @@
             </dependency>
 
             <dependency>
-                <groupId>com.facebook.airlift</groupId>
+                <groupId>com.github.zacblanco</groupId>
                 <artifactId>command</artifactId>
-                <version>0.4-SNAPSHOT</version>
+                <version>upgradeJava21Jitpack-SNAPSHOT</version>
             </dependency>
 
             <dependency>
-                <groupId>com.facebook.airlift</groupId>
+                <groupId>com.github.zacblanco.airlift</groupId>
                 <artifactId>concurrent</artifactId>
                 <version>${dep.airlift.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.facebook.airlift</groupId>
+                <groupId>com.github.zacblanco.airlift</groupId>
                 <artifactId>log</artifactId>
                 <version>${dep.airlift.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.facebook.airlift</groupId>
+                <groupId>com.github.zacblanco.airlift</groupId>
                 <artifactId>units</artifactId>
-                <version>1.4-SNAPSHOT</version>
+                <version>${dep.airlift.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

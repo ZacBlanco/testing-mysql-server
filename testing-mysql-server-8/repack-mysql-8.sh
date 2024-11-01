@@ -20,9 +20,6 @@ then
     exit 100
 fi
 
-STRIP=strip
-command -v gstrip >/dev/null && STRIP=gstrip
-
 set -x
 
 cd $(dirname $0)
