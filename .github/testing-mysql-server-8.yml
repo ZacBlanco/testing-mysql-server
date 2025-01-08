@@ -1,0 +1,40 @@
+name: Java Maven Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04  # Default run-on for the matrix
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04, centos-stream-8]
+      fail-fast: false
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+
+      # Conditional step that runs only on Ubuntu
+      - name: Run custom command on Ubuntu
+        if: matrix.os == 'ubuntu-22.04' || matrix.os == 'ubuntu-24.04'
+        run: |
+          apt-get install libaio-dev
+
+      # Conditional step that runs only on CentOS
+      - name: Run custom command on CentOS
+        if: matrix.os == 'centos-stream-8'
+        run: |
+          yum install libaio-devel
+      - name: Run Maven clean install
+        run: ./mvnw clean install -pl testing-mysql-server-8
