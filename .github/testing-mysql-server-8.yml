@@ -6,7 +6,6 @@ on:
       - main
   pull_request:
 
-
 jobs:
   build:
     runs-on: ubuntu-22.04  # Default run-on for the matrix
